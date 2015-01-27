@@ -119,13 +119,13 @@ void interpret() {
   if (joyUp && camHeight < 250) { camHeight += 2; }
   if (joyDown && camHeight > -100) { camHeight -= 2; }
 
-  branching = round(map(potA, 0, 1023, 0, 8));
-  bend = map(potB, 0, 1023, 0, PI);
-  shrinkVal = map(potC, 0, 1023, 0.5, 0.75);
-  sizeLimit = map(potD, 0, 1023, 3, 20);
-
-  branchRadius = map(sPotA, 0, 1023, 4, 10);
-  branchRatio = map(sPotB, 0, 1023, 1, 2);
+  branching = round(map(sPotA, 0, 1023, 0, 8));
+  bend = map(sPotB, 0, 1023, 0, PI);
+  
+  shrinkVal = map(potA, 0, 1023, 0.5, 0.75);
+  sizeLimit = map(potB, 0, 1023, 3, 20);
+  branchRadius = map(potD, 0, 1023, 4, 10);
+  branchRatio = map(potC, 0, 1023, 1, 2);
   
   if (buttonAP) {
     colorMethod = (colorMethod+1) % 3;
