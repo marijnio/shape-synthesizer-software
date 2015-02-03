@@ -108,16 +108,18 @@ void loop() {
     // wrap around if necessary
     if (index >= s) { index = 0; }
 
-  // calculate the average:
-  average = total / numReadings;
+  // calculate the averages
+  for (int i=0; i<s; i++) {
+    averages[i] = totals[i] / s;
+  }
     
-    _potA = (1023-analogRead(potA));
-    _potB = (1023-analogRead(potB));
-    _potC = (1023-analogRead(potC));
-    _potD = (1023-analogRead(potD));
+    _potA = averages[0];
+    _potB = averages[1];
+    _potC = averages[2];
+    _potD = averages[3];
     
-    _sPotA = analogRead(sPotA);
-    _sPotB = analogRead(sPotB);
+    _sPotA = averages[4];
+    _sPotB = averages[5];
     
     // send input values
     Serial.print(String(_buttonA) + " ");
